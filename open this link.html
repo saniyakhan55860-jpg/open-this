@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Sahil ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family: 'Comic Sans MS', cursive;
+  background:#c2185b;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+/* Floating hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:20px;
+  animation:floatUp linear infinite;
+  opacity:0.8;
+}
+
+@keyframes floatUp{
+  0%{
+    transform:translateY(0);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-110vh);
+    opacity:0;
+  }
+}
+
+.container{
+  text-align:center;
+  z-index:10;
+}
+
+h2{
+  color:white;
+  margin-bottom:15px;
+}
+
+.envelope{
+  width:300px;
+  height:200px;
+  background:#f8bbd0;
+  position:relative;
+  border-radius:8px;
+  cursor:pointer;
+  overflow:hidden;
+}
+
+.flap{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#f48fb1;
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  transition:transform 1s;
+  transform-origin:top;
+}
+
+.letter{
+  position:absolute;
+  bottom:-100%;
+  left:0;
+  width:100%;
+  height:100%;
+  background:white;
+  padding:15px;
+  box-sizing:border-box;
+  transition:bottom 1s;
+  overflow-y:auto;
+  border-radius:6px;
+}
+
+.open .flap{
+  transform:rotateX(180deg);
+}
+
+.open .letter{
+  bottom:0;
+}
+
+.letter h3{
+  color:#c2185b;
+}
+
+.letter p{
+  font-size:14px;
+  line-height:1.6;
+  color:#444;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>I've got something for you 💌</h2>
+
+  <div class="envelope" onclick="openLetter()">
+    <div class="flap"></div>
+
+    <div class="letter">
+      <h3>Happy Birthday, Mr. Sahil Shaikh 🫶💗</h3>
+
+      <p>
+      On your special day, I sincerely pray that you stay healthy,
+      strong, and at peace in every phase of life.🫠
+      </p>
+
+      <p>
+      May Allah always guide you on the right path and give you patience,
+      wisdom, and success in whatever you do.🙌
+      </p>
+
+      <p>
+      May your hard work bring good results and may you always be surrounded
+      by positivity and good people.🙌
+      </p>
+
+      <p>
+      I wish you a life full of balance, growth, and quiet happiness.
+      May this new year of your life bring you closer to your goals
+      and keep you protected always.
+      </p>
+
+      <p style="text-align:center;">❤️ Always proud of you 💐❤️</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openLetter(){
+  document.querySelector('.envelope').classList.toggle('open');
+}
+
+/* Floating hearts generator */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}, 400);
+</script>
+
+</body>
+</html>
